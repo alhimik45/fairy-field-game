@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using Machine.Specifications;
 
 namespace FairyField.UnitTests
 {
     public class WordSpecs
     {
-            [Subject(typeof(Word))]
-            public class When_created
-            {
-                Establish context = () =>
-                {
-                    Subject = new Word();
-                };
+        [Subject(typeof(Word))]
+        public class When_created_with_null
+        {
+            Because of = () => Exception = Catch.Exception(() => new Word(null));
 
-                It should_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeTrue();
+            private It should_fail = () => Exception.ShouldBeOfExactType<ArgumentException>();
 
-                static Word Subject;
-            }
+            static Exception Exception;
+        }
     }
 }
