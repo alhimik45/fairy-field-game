@@ -40,7 +40,10 @@ namespace FairyField.UnitTests
         {
             Establish context = () => { Subject = new Word("hello"); };
 
+            Because of = () => Subject.Open('l');
+            
             It should_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeTrue();
+            It should_have_view = () => Subject.View.ShouldEqual("**ll*");
 
             static Word Subject;
         }
@@ -53,6 +56,7 @@ namespace FairyField.UnitTests
             Because of = () => Subject.Open('a');
             
             It should_not_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeFalse();
+            It should_have_view = () => Subject.View.ShouldEqual("a");
 
             static Word Subject;
         }
@@ -66,6 +70,7 @@ namespace FairyField.UnitTests
             {
                 Because of = () => Subject.Open('a');
                 It should_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeTrue();
+                It should_have_view = () => Subject.View.ShouldEqual("a*");
             }
             
             class open_ab
@@ -76,6 +81,7 @@ namespace FairyField.UnitTests
                     Subject.Open('b');
                 };
                 It should_not_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeFalse();
+                It should_have_view = () => Subject.View.ShouldEqual("ab");
             }
             
             static Word Subject;
