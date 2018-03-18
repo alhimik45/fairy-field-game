@@ -4,7 +4,7 @@ namespace FairyField.UnitTests
 {
     public class GameStateSpecs
     {
-        [Subject(typeof(Word))]
+        [Subject(typeof(GameState))]
         public class When_created
         {
             Establish context = () => { Subject = new GameState(new Word("a")); };
