@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using FairyField.DrumActions;
 using Machine.Specifications;
-using Machine.Specifications.Model;
 using NSubstitute;
 
 namespace FairyField.UnitTests
