@@ -63,6 +63,15 @@ namespace FairyField.UnitTests
                 It should_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeTrue();
                 It should_have_view = () => Subject.View.ShouldEqual("**ll*");
             }
+            
+            class open_out_of_bounds_letter
+            {
+                Because of = () => OpenResult = Subject.Open(500);
+            
+                It should_getresult_false = () => OpenResult.ShouldBeFalse();
+                It should_have_view = () => Subject.View.ShouldEqual("*****");
+                static bool OpenResult;
+            }
 
             static Word Subject;
         }
