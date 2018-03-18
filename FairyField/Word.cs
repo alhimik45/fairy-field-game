@@ -4,7 +4,7 @@ namespace FairyField
 {
     public class Word
     {
-        public bool HaveClosedLetters => true;
+        public bool HaveClosedLetters { get; private set; } = true;
 
         public Word(string word)
         {
@@ -17,6 +17,11 @@ namespace FairyField
             {
                 throw new ArgumentException("contains whitespaces", nameof(word));
             }
+        }
+
+        public void Open(char letter)
+        {
+            HaveClosedLetters = false;
         }
     }
 }

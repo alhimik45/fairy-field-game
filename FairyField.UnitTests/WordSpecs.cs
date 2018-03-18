@@ -44,5 +44,17 @@ namespace FairyField.UnitTests
 
             static Word Subject;
         }
+        
+        [Subject(typeof(Word))]
+        public class When_created_with_a_string
+        {
+            Establish context = () => { Subject = new Word("a"); };
+
+            Because of = () => Subject.Open('a');
+            
+            It should_not_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeFalse();
+
+            static Word Subject;
+        }
     }
 }
