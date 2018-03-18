@@ -5,22 +5,22 @@ using NSubstitute;
 
 namespace FairyField.UnitTests
 {
-    public class BakruptActionSpecs
+    public class DoubleActionSpecs
     {
-        [Subject(typeof(BankruptAction))]
+        [Subject(typeof(DoubleAction))]
         public class When_act
         {
             Establish context = () =>
             {
                 State = new GameState(new Word("a")) {Scores = 42};
-                Subject = new BankruptAction(Substitute.For<TextWriter>());
+                Subject = new DoubleAction(Substitute.For<TextWriter>());
             };
 
             Because of = () => Subject.Act(State);
 
-            It should_set_state_scores_to_zero = () => State.Scores.ShouldEqual(0);
+            It should_double_score = () => State.Scores.ShouldEqual(84);
 
-            static BankruptAction Subject;
+            static DoubleAction Subject;
             static GameState State;
         }
     }
