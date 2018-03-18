@@ -37,7 +37,7 @@ namespace FairyField
             var rightLetter = false;
             foreach (var letter in word)
             {
-                if (openedLetter == letter)
+                if (openedLetter == letter && closedLetters[i])
                 {
                     rightLetter = true;
                     closedLetters[i] = false;
@@ -47,6 +47,11 @@ namespace FairyField
             }
 
             return rightLetter;
+        }
+
+        public bool Open(int letterIndex)
+        {
+            return Open(word[letterIndex-1]);
         }
     }
 }
