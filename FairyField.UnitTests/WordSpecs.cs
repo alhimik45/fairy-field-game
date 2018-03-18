@@ -68,9 +68,12 @@ namespace FairyField.UnitTests
 
             class open_a
             {
-                Because of = () => Subject.Open('a');
+                Because of = () => OpenResult = Subject.Open('a');
                 It should_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeTrue();
                 It should_have_view = () => Subject.View.ShouldEqual("a*");
+                It should_return_true_on_open = () => OpenResult.ShouldBeTrue();
+
+                static bool OpenResult;
             }
             
             class open_ab
