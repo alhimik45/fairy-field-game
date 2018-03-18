@@ -8,9 +8,9 @@ namespace FairyField
 
         public Word(string word)
         {
-            if(word == null)
+            if(string.IsNullOrWhiteSpace(word))
             {
-                throw new ArgumentException();
+                throw new ArgumentException("null or empty", nameof(word));
             }
         }
     }
