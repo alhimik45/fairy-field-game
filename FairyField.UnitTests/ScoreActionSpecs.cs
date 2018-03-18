@@ -20,7 +20,7 @@ namespace FairyField.UnitTests
                 Subject = new ScoreAction(10, LetterAsk, Output);
             };
 
-            private Because of = () => Subject.Act(State);
+            Because of = () => Subject.Act(State);
 
             It should_output_something = () => Output.Received().WriteLine(Arg.Any<string>());
             It should_ask_for_letter = () => LetterAsk.Received().Ask(State);
@@ -44,7 +44,7 @@ namespace FairyField.UnitTests
                 Subject = new ScoreAction(10, LetterAsk, Output);
             };
 
-            private Because of = () => Subject.Act(State);
+            Because of = () => Subject.Act(State);
 
             It should_ask_for_letter = () => LetterAsk.Received().Ask(State);
             It should_not_change_score = () => State.Scores.ShouldEqual(0);

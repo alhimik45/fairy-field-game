@@ -2,10 +2,12 @@
 {
     public class GameState
     {
-        public int Scores { get; set; } = 0;
+        public Word CurrentWord { get; }
+        public int Scores { get; set; }
 
-        public GameState(Word word)
+        public GameState(Word currentWord)
         {
+            CurrentWord = currentWord;
         }
     }
 }
