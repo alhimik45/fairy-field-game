@@ -8,7 +8,10 @@ namespace FairyField
 
         public Word(string word)
         {
-            throw new ArgumentException();
+            if(word == null)
+            {
+                throw new ArgumentException();
+            }
         }
     }
 }

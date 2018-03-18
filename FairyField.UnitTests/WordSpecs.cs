@@ -14,5 +14,18 @@ namespace FairyField.UnitTests
 
             static Exception Exception;
         }
+
+        [Subject(typeof(Word))]
+        public class When_created_with_hello_string
+        {
+            Establish context = () =>
+            {
+                Subject = new Word("hello");
+            };
+
+            It should_have_closed_letters = () => Subject.HaveClosedLetters.ShouldBeTrue();
+
+            static Word Subject;
+        }
     }
 }
