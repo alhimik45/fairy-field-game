@@ -15,7 +15,7 @@ namespace FairyField.UnitTests
                 Output = Substitute.For<TextWriter>();
                 Input.ReadLine().Returns("", "a");
                 State = new GameState(new Word("a"));
-                Subject = new LetterAsk(State, Input, Output);
+                Subject = new LetterAsk(Input, Output);
             };
 
             Because of = () => AskResult = Subject.Ask(State);
@@ -40,7 +40,7 @@ namespace FairyField.UnitTests
                 Output = Substitute.For<TextWriter>();
                 Input.ReadLine().Returns("b");
                 State = new GameState(new Word("a"));
-                Subject = new LetterAsk(State, Input, Output);
+                Subject = new LetterAsk(Input, Output);
             };
 
             Because of = () => AskResult = Subject.Ask(State);

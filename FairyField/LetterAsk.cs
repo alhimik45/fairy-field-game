@@ -4,13 +4,11 @@ namespace FairyField
 {
     public class LetterAsk : ILetterAsk
     {
-        private readonly GameState state;
         private readonly TextReader input;
         private readonly TextWriter output;
 
-        public LetterAsk(GameState state, TextReader input, TextWriter output)
+        public LetterAsk(TextReader input, TextWriter output)
         {
-            this.state = state;
             this.input = input;
             this.output = output;
         }
